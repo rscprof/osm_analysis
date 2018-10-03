@@ -39,7 +39,7 @@ def get_stat_by_city (place):
 
   len = get_sum_length_lanes(G)
   len2 = get_sum_length_lanes(G2)
-  result = ((len+len2),area,(len+len2)/math.sqrt(area))
+  result = ((len+len2),area,(len+len2)/math.sqrt(area),(len+len2)/area)
   return result
 
 
@@ -47,8 +47,8 @@ def get_stat_by_city (place):
 ox.config(use_cache=True,log_file=True)
 for line in fileinput.input():
     line = line.rstrip()
-    (len,area,quality) = get_stat_by_city(line)
-    print (line,';',len,';',area,';',quality)
+    (len,area,quality,quality2) = get_stat_by_city(line)
+    print (line,';',len,';',area,';',quality,';',quality2)
     
     
 
